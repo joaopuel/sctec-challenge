@@ -19,7 +19,7 @@ import lombok.experimental.FieldDefaults;
 @Service
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-public class UpdateUseCaseImpl implements UpdateUseCase<OwnerDTO> {
+public class UpdateOwnerUseCaseImpl implements UpdateUseCase<OwnerDTO> {
     
     CustomMapper customMapper;
     GenericMapper<OwnerModel, OwnerDTO> ownerDTOGenericMapper;

@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Service
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-public class DeleteUseCaseImpl implements DeleteUseCase<UUID> {
+public class DeleteOwnerUseCaseImpl implements DeleteUseCase<UUID> {
 
     DeleteGateway<UUID> deleteOwnerEntityGateway;
 

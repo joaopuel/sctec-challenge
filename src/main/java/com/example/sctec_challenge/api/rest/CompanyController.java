@@ -26,6 +26,8 @@ public class CompanyController implements GenericEntityController<CreateCompanyD
     CreateUseCase<CreateCompanyDTO, CompanyDTO> createCompanyUseCaseImpl;
     RetrieveByIdUseCase<CompanyDTO, UUID> retrieveCompanyByIdUseCaseImpl;
     PageableUseCase<CompanyDTO> pageableCompanyUseCaseImpl;
+    DeleteUseCase<UUID> deleteCompanyUseCaseImpl;
+    UpdateUseCase<CompanyDTO> updateCompanyUseCaseImpl;
     
     @Override
     public CreateUseCase<CreateCompanyDTO, CompanyDTO> getCreateUseCase() {
@@ -34,12 +36,12 @@ public class CompanyController implements GenericEntityController<CreateCompanyD
     
     @Override
     public UpdateUseCase<CompanyDTO> getUpdateUseCase() {
-        return null;
+        return updateCompanyUseCaseImpl;
     }
     
     @Override
     public DeleteUseCase<UUID> getDeleteUseCase() {
-        return null;
+        return deleteCompanyUseCaseImpl;
     }
     
     @Override
