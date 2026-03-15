@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.example.sctec_challenge.application.usecase.contract.DeleteUseCase;
-import com.example.sctec_challenge.infrastructure.gateway.contract.DeleteGateway;
+import com.example.sctec_challenge.domain.gateway.DeleteGateway;
+import com.example.sctec_challenge.domain.usecase.DeleteUseCase;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 

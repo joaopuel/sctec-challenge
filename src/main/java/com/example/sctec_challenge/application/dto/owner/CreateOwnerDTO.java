@@ -5,10 +5,11 @@ import java.time.LocalDate;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 
 public record CreateOwnerDTO (
-        @NotNull(message = "name must not be null")
+        @NotNull(message = "Name must not be null")
         @NotEmpty(message = "Name must not be empty")
         String name,
         
@@ -24,6 +25,7 @@ public record CreateOwnerDTO (
         String cpf,
         
         @NotNull(message = "Birth date must not be null")
+        @Past(message = "Birth date must be in the past")
         LocalDate birthDate
 ) {
 

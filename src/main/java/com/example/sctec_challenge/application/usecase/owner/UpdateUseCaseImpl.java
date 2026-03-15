@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
 import com.example.sctec_challenge.application.exception.ServiceException;
-import com.example.sctec_challenge.application.usecase.contract.UpdateUseCase;
 import com.example.sctec_challenge.application.utils.CustomMapper;
+import com.example.sctec_challenge.domain.gateway.ExistsByIdGateway;
+import com.example.sctec_challenge.domain.gateway.SaveGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
+import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.contract.ExistsByIdGateway;
-import com.example.sctec_challenge.infrastructure.gateway.owner.SaveOwnerEntityGateway;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
@@ -23,7 +23,7 @@ public class UpdateUseCaseImpl implements UpdateUseCase<OwnerDTO> {
     
     CustomMapper customMapper;
     GenericMapper<OwnerModel, OwnerDTO> ownerDTOGenericMapper;
-    SaveOwnerEntityGateway saveOwnerEntityGateway;
+    SaveGateway<OwnerModel> saveOwnerEntityGateway;
     ExistsByIdGateway<UUID> existsByIdOwnerEntityGateway;
     
     @Override

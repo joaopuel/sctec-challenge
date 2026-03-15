@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
-import com.example.sctec_challenge.infrastructure.gateway.contract.DeleteGateway;
+import com.example.sctec_challenge.domain.gateway.DeleteGateway;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

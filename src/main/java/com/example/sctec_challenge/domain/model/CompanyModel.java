@@ -3,7 +3,6 @@ package com.example.sctec_challenge.domain.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.example.sctec_challenge.infrastructure.persistence.entities.OwnerEntity;
 import com.example.sctec_challenge.infrastructure.persistence.enums.BusinessSegment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +20,10 @@ import lombok.experimental.FieldDefaults;
 public class CompanyModel {
     
     UUID id;
-    OwnerEntity owner;
+    String name;
+    OwnerModel owner;
     String municipality;
+    String cnpj;
     BusinessSegment businessSegment;
     String email;
     String phone;

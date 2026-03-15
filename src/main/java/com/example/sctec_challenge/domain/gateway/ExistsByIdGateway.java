@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.infrastructure.gateway.contract;
+package com.example.sctec_challenge.domain.gateway;
 
 /**
  * Gateway contract for checking the existence of an entity by its identifier.

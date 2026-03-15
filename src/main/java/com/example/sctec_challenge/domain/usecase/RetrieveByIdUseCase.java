@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.application.usecase.contract;
+package com.example.sctec_challenge.domain.usecase;
 
 /**
  * Contract for use cases that retrieve a single resource represented by a unique identifier.

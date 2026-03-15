@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
 import com.example.sctec_challenge.application.dto.pageable.PageDTO;
-import com.example.sctec_challenge.application.usecase.contract.PageableUseCase;
+import com.example.sctec_challenge.domain.gateway.PageableGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
+import com.example.sctec_challenge.domain.usecase.PageableUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.contract.PageableGateway;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 

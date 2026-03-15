@@ -29,12 +29,18 @@ public class CompanyEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     UUID id;
     
+    @Column(nullable = false)
+    String name;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
     OwnerEntity owner;
     
     @Column(nullable = false)
     String municipality;
+    
+    @Column(length = 14, nullable = false, unique = true)
+    String cnpj;
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -50,5 +56,5 @@ public class CompanyEntity {
     LocalDate foundationDate;
     
     @Column(name = "is_active", nullable = false)
-    Boolean isActive;
+    Boolean isActive = true;
 }

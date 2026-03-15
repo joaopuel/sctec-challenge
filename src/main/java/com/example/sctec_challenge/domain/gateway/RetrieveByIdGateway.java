@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.infrastructure.gateway.contract;
+package com.example.sctec_challenge.domain.gateway;
 
 import java.util.Optional;
 
