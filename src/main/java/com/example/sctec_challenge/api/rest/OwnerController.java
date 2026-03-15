@@ -1,15 +1,15 @@
 package com.example.sctec_challenge.api.rest;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.UUID;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sctec_challenge.application.dto.owner.CreateOwnerDTO;
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.usecase.CreateOwnerUseCaseImpl;
-import jakarta.validation.Valid;
+import com.example.sctec_challenge.application.usecase.contract.CreateUseCase;
+import com.example.sctec_challenge.application.usecase.contract.PageableUseCase;
+import com.example.sctec_challenge.application.usecase.contract.RetrieveByIdUseCase;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -18,14 +18,22 @@ import lombok.experimental.FieldDefaults;
 @RequestMapping("/owner")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class OwnerController {
+public class OwnerController implements GenericEntityController<CreateOwnerDTO, OwnerDTO, UUID> {
     
-    CreateOwnerUseCaseImpl createOwnerUseCase;
+    CreateUseCase<CreateOwnerDTO, OwnerDTO> createOwnerUseCaseImpl;
     
-    @PostMapping
-    public ResponseEntity<OwnerDTO> create(@RequestBody @Valid CreateOwnerDTO request) {
-        OwnerDTO response = createOwnerUseCase.execute(request);
-        return ResponseEntity.ok(response);
+    @Override
+    public CreateUseCase<CreateOwnerDTO, OwnerDTO> getCreateUseCase() {
+        return createOwnerUseCaseImpl;
     }
-
+    
+    @Override
+    public RetrieveByIdUseCase<OwnerDTO, UUID> getUniqueUseCase() {
+        return null;
+    }
+    
+    @Override
+    public PageableUseCase<OwnerDTO> getPageableUseCase() {
+        return null;
+    }
 }
