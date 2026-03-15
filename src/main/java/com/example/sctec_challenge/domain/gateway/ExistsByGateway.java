@@ -6,7 +6,7 @@ package com.example.sctec_challenge.domain.gateway;
  * @param <ID> identifier type
  */
 @FunctionalInterface
-public interface ExistsByIdGateway<ID> {
+public interface ExistsByGateway<ID> {
 
     /**
      * Checks if an entity with the given identifier exists.

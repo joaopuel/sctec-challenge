@@ -1,5 +1,6 @@
 package com.example.sctec_challenge.infrastructure.gateway.owner;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -28,22 +29,12 @@ public class SaveOwnerEntityGateway implements SaveGateway<OwnerModel> {
             entity = ownerRepository.save(entity);
             return customMapper.map(entity, OwnerModel.class);
         } catch (DataIntegrityViolationException e) {
-            String message = handleErrorMessage(e.getMessage());
-            throw new ServiceException(message, HttpStatus.CONFLICT);
-        }
-    }
-    
-    private static String handleErrorMessage(String originalMessage) {
-        String customMessage = "A data integrity violation occurred";
-        
-        if (originalMessage != null) {
-            if (originalMessage.contains("CPF") || originalMessage.toUpperCase().contains("OWNER.CPF")) {
-                customMessage = "CPF already registered. Please use a different CPF.";
-            } else if (originalMessage.contains("EMAIL") || originalMessage.toUpperCase().contains("OWNER.EMAIL")) {
-                customMessage = "Email already registered. Please use a different email.";
+            if (e.getCause() instanceof ConstraintViolationException violationException && violationException.getKind() == ConstraintViolationException.ConstraintKind.UNIQUE) {
+                throw new ServiceException("CPF already registered. Please use a different CPF.", HttpStatus.CONFLICT);
             }
+            
+            throw new ServiceException("A data integrity violation occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return customMessage;
     }
     
 }

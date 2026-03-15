@@ -9,6 +9,7 @@ import org.springframework.web.util.BindErrorUtils;
 
 import com.example.sctec_challenge.application.dto.requests.ErrorCategoryDTO;
 import com.example.sctec_challenge.application.exception.ServiceException;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
@@ -19,7 +20,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorCategoryDTO> handlerBadRequest(MethodArgumentNotValidException ex) {
         return ResponseEntity //
                 .status(HttpStatus.BAD_REQUEST) //
-                .body(new ErrorCategoryDTO("INVALID_PARAMETER", BindErrorUtils.resolveAndJoin(ex.getFieldErrors())));
+                .body(new ErrorCategoryDTO(HttpStatus.BAD_REQUEST.name(), BindErrorUtils.resolveAndJoin(ex.getFieldErrors())));
+    }
+    
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorCategoryDTO> handlerBadRequest(ConstraintViolationException ex) {
+        return ResponseEntity //
+                .status(HttpStatus.BAD_REQUEST) //
+                .body(new ErrorCategoryDTO(HttpStatus.BAD_REQUEST.name(), ex.getMessage()));
     }
     
     @ExceptionHandler(ServiceException.class)
@@ -34,6 +42,6 @@ public class GlobalExceptionHandler {
         log.error("An unexpected error occurred: ", ex);
         return ResponseEntity //
                 .status(HttpStatus.INTERNAL_SERVER_ERROR) //
-                .body(new ErrorCategoryDTO("INTERNAL_ERROR", "An unexpected error occurred. Please try again later."));
+                .body(new ErrorCategoryDTO(HttpStatus.INTERNAL_SERVER_ERROR.name(), "An unexpected error occurred. Please try again later."));
     }
 }

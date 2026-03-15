@@ -9,5 +9,8 @@ import com.example.sctec_challenge.infrastructure.persistence.entities.OwnerEnti
 
 @Repository
 public interface OwnerRepository extends JpaRepository<OwnerEntity, UUID> {
-
+    
+    boolean existsByCpf(String cpf);
+    
+    OwnerEntity getReferenceByCpf(String cpf);
 }

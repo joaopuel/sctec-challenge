@@ -1,5 +1,6 @@
 package com.example.sctec_challenge.infrastructure.gateway.company;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -8,7 +9,9 @@ import com.example.sctec_challenge.application.exception.ServiceException;
 import com.example.sctec_challenge.application.utils.CustomMapper;
 import com.example.sctec_challenge.domain.gateway.SaveGateway;
 import com.example.sctec_challenge.domain.model.CompanyModel;
+import com.example.sctec_challenge.domain.model.OwnerModel;
 import com.example.sctec_challenge.infrastructure.persistence.entities.CompanyEntity;
+import com.example.sctec_challenge.infrastructure.persistence.entities.OwnerEntity;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.CompanyRepository;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
 import lombok.AllArgsConstructor;
@@ -27,26 +30,24 @@ public class SaveCompanyEntityGateway implements SaveGateway<CompanyModel> {
     public CompanyModel execute(CompanyModel model) {
         try {
             var entity = customMapper.map(model, CompanyEntity.class);
-            entity.setOwner(ownerRepository.getReferenceById(model.getOwner().getId()));
+            entity.setOwner(getOwnerEntity(model.getOwner()));
             entity = companyRepository.save(entity);
             return customMapper.map(entity, CompanyModel.class);
         } catch (DataIntegrityViolationException e) {
-            String message = handleErrorMessage(e.getMessage());
-            throw new ServiceException(message, HttpStatus.CONFLICT);
+            if (e.getCause() instanceof ConstraintViolationException violationException && violationException.getKind() == ConstraintViolationException.ConstraintKind.UNIQUE) {
+                throw new ServiceException("CNPJ already registered. Please use a different CNPJ.", HttpStatus.CONFLICT);
+            }
+            
+            throw new ServiceException("A data integrity violation occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     
-    private static String handleErrorMessage(String originalMessage) {
-        String customMessage = "A data integrity violation occurred";
-        
-        if (originalMessage != null) {
-            if (originalMessage.contains("CNPJ") || originalMessage.toUpperCase().contains("OWNER.CNPJ")) {
-                customMessage = "CNPJ already registered. Please use a different CNPJ.";
-            } else if (originalMessage.contains("EMAIL") || originalMessage.toUpperCase().contains("OWNER.EMAIL")) {
-                customMessage = "Email already registered. Please use a different email.";
-            }
+    private OwnerEntity getOwnerEntity(OwnerModel owner) {
+        if (owner.getId() != null) {
+            return ownerRepository.getReferenceById(owner.getId());
+        } else {
+            return ownerRepository.getReferenceByCpf(owner.getCpf());
         }
-        return customMessage;
     }
     
 }

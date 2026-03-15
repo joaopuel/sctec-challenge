@@ -1,7 +1,5 @@
 package com.example.sctec_challenge.infrastructure.gateway.owner;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Component;
 
 import com.example.sctec_challenge.domain.gateway.ExistsByGateway;
@@ -12,12 +10,12 @@ import lombok.experimental.FieldDefaults;
 @Component
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-public class ExistsByIdOwnerEntityGateway implements ExistsByGateway<UUID> {
+public class ExistsByCpfOwnerEntityGateway implements ExistsByGateway<String> {
     
     OwnerRepository ownerRepository;
     
     @Override
-    public boolean execute(UUID id) {
-        return ownerRepository.existsById(id);
+    public boolean execute(String cpf) {
+        return ownerRepository.existsByCpf(cpf);
     }
 }
