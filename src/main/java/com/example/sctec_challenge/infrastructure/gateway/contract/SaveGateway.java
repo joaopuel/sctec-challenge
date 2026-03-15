@@ -6,7 +6,7 @@ package com.example.sctec_challenge.infrastructure.gateway.contract;
  * @param <D> type representing the entity being created
  */
 @FunctionalInterface
-public interface CreateGateway<D> {
+public interface SaveGateway<D> {
 
     /**
      * Persists a new entity instance.

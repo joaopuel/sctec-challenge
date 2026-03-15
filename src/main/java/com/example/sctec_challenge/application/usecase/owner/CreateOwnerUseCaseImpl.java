@@ -8,7 +8,7 @@ import com.example.sctec_challenge.application.usecase.contract.CreateUseCase;
 import com.example.sctec_challenge.application.utils.CustomMapper;
 import com.example.sctec_challenge.domain.model.OwnerModel;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.owner.CreateOwnerEntityGateway;
+import com.example.sctec_challenge.infrastructure.gateway.owner.SaveOwnerEntityGateway;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
@@ -19,12 +19,12 @@ public class CreateOwnerUseCaseImpl implements CreateUseCase<CreateOwnerDTO, Own
     
     CustomMapper customMapper;
     GenericMapper<OwnerModel, OwnerDTO> ownerDTOGenericMapper;
-    CreateOwnerEntityGateway createOwnerEntityGateway;
+    SaveOwnerEntityGateway saveOwnerEntityGateway;
     
     @Override
     public OwnerDTO execute(CreateOwnerDTO dto) {
         var model = customMapper.map(dto, OwnerModel.class);
-        model = createOwnerEntityGateway.execute(model);
+        model = saveOwnerEntityGateway.execute(model);
         return ownerDTOGenericMapper.map(model);
     }
     
