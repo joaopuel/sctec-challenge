@@ -1,6 +1,9 @@
 package com.example.sctec_challenge.domain.model;
 
 import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.util.CollectionUtils;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -26,4 +29,18 @@ public class PageModel<T> {
     long totalElements;
     int totalPages;
     Collection<T> contents;
+    
+    public static <T> PageModel<T> empty() {
+        return PageModel.<T>builder()
+            .size(0)
+            .page(0)
+            .totalElements(0L)
+            .totalPages(0)
+            .contents(Collections.emptyList())
+            .build();
+    }
+    
+    public boolean isEmpty() {
+        return CollectionUtils.isEmpty(contents);
+    }
 }

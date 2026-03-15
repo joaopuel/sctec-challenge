@@ -19,7 +19,7 @@ import lombok.NonNull;
  * Interface that defines a generic REST controller for managing entities, providing default implementations for common CRUD operations.
  *
  * @param <C> the type that represents the resource to be created
- * @param <D> the inbound payload type containing creation data
+ * @param <D> the type that represents the resource to be returned in responses
  * @param <ID>  the type of the resource identifier
  */
 public interface GenericEntityController<C, D, ID> {

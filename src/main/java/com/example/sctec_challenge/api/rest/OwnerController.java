@@ -21,6 +21,8 @@ import lombok.experimental.FieldDefaults;
 public class OwnerController implements GenericEntityController<CreateOwnerDTO, OwnerDTO, UUID> {
     
     CreateUseCase<CreateOwnerDTO, OwnerDTO> createOwnerUseCaseImpl;
+    RetrieveByIdUseCase<OwnerDTO, UUID> retrieveOwnerByIdUseCaseImpl;
+    PageableUseCase<OwnerDTO> pageableOwnerUseCaseImpl;
     
     @Override
     public CreateUseCase<CreateOwnerDTO, OwnerDTO> getCreateUseCase() {
@@ -29,11 +31,11 @@ public class OwnerController implements GenericEntityController<CreateOwnerDTO, 
     
     @Override
     public RetrieveByIdUseCase<OwnerDTO, UUID> getUniqueUseCase() {
-        return null;
+        return retrieveOwnerByIdUseCaseImpl;
     }
     
     @Override
     public PageableUseCase<OwnerDTO> getPageableUseCase() {
-        return null;
+        return pageableOwnerUseCaseImpl;
     }
 }

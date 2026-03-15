@@ -26,5 +26,9 @@ public record PageDTO<T>(
         @Min(value = 0, message = "Total pages must be greater than or equal to 0") int totalPages,
 
         @NotNull(message = "Contents cannot be null") Collection<T> contents) {
+    
+    public static  <T> PageDTO<T> empty() {
+        return new PageDTO<>(0, 0, 0, 0, java.util.Collections.emptyList());
+    }
 
 }
