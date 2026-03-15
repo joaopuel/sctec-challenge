@@ -22,7 +22,7 @@ import lombok.experimental.FieldDefaults;
 @RequestMapping("/company")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Tag(name = "Company", description = "API for managing companies")
+@Tag(name = "Empresas", description = "API para gerenciar empresas")
 public class CompanyController implements GenericEntityController<CreateCompanyDTO, CompanyDTO, UUID> {
     
     CreateUseCase<CreateCompanyDTO, CompanyDTO> createCompanyUseCaseImpl;

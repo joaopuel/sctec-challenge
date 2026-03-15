@@ -22,7 +22,7 @@ import lombok.experimental.FieldDefaults;
 @RequestMapping("/owner")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Tag(name = "Owner", description = "API for managing company owners")
+@Tag(name = "Responsáveis", description = "API para gerenciar responsáveis das empresas")
 public class OwnerController implements GenericEntityController<CreateOwnerDTO, OwnerDTO, UUID> {
     
     CreateUseCase<CreateOwnerDTO, OwnerDTO> createOwnerUseCaseImpl;
