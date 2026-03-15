@@ -20,7 +20,7 @@ import lombok.experimental.FieldDefaults;
 public class CreateCompanyUseCaseImpl implements CreateUseCase<CreateCompanyDTO, CompanyDTO> {
     
     CustomMapper customMapper;
-    GenericMapper<CompanyModel, CompanyDTO> ownerDTOGenericMapper;
+    GenericMapper<CompanyModel, CompanyDTO> companyDTOMapper;
     SaveGateway<CompanyModel> saveCompanyEntityGateway;
     CreatefNotExistsUseCase<OwnerDTO> createOwnerIfNotExistsUseCase;
     
@@ -29,7 +29,7 @@ public class CreateCompanyUseCaseImpl implements CreateUseCase<CreateCompanyDTO,
         createOwnerIfNotExistsUseCase.execute(dto.owner());
         var model = customMapper.map(dto, CompanyModel.class);
         model = saveCompanyEntityGateway.execute(model);
-        return ownerDTOGenericMapper.map(model);
+        return companyDTOMapper.map(model);
     }
     
 }

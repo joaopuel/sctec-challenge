@@ -24,6 +24,8 @@ import lombok.experimental.FieldDefaults;
 public class CompanyController implements GenericEntityController<CreateCompanyDTO, CompanyDTO, UUID> {
     
     CreateUseCase<CreateCompanyDTO, CompanyDTO> createCompanyUseCaseImpl;
+    RetrieveByIdUseCase<CompanyDTO, UUID> retrieveCompanyByIdUseCaseImpl;
+    PageableUseCase<CompanyDTO> pageableCompanyUseCaseImpl;
     
     @Override
     public CreateUseCase<CreateCompanyDTO, CompanyDTO> getCreateUseCase() {
@@ -42,11 +44,11 @@ public class CompanyController implements GenericEntityController<CreateCompanyD
     
     @Override
     public RetrieveByIdUseCase<CompanyDTO, UUID> getUniqueUseCase() {
-        return null;
+        return retrieveCompanyByIdUseCaseImpl;
     }
     
     @Override
     public PageableUseCase<CompanyDTO> getPageableUseCase() {
-        return null;
+        return pageableCompanyUseCaseImpl;
     }
 }
