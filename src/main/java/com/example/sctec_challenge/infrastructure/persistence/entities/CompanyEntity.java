@@ -40,7 +40,7 @@ public class CompanyEntity {
     @Column(nullable = false)
     BusinessSegment businessSegment;
     
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     String email;
     
     @Column(length = 11)

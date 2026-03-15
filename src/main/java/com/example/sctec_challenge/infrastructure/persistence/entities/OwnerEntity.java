@@ -40,12 +40,12 @@ public class OwnerEntity {
     @Column(length = 11)
     String phone;
     
-    @Column(length = 11, nullable = false)
+    @Column(length = 11, nullable = false, unique = true)
     String cpf;
     
     @Column(name = "birth_date", nullable = false)
     LocalDate birthDate;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", orphanRemoval = true, cascade = CascadeType.ALL)
-    List<CompanyEntity> companies;
+    List<CompanyEntity> companies = new ArrayList<>();
 }
