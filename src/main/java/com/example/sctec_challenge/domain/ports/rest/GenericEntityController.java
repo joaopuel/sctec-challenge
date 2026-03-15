@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.rest;
+package com.example.sctec_challenge.domain.ports.rest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sctec_challenge.application.dto.pageable.PageDTO;
 import com.example.sctec_challenge.application.dto.pageable.PaginationDTO;
-import com.example.sctec_challenge.domain.usecase.CreateUseCase;
-import com.example.sctec_challenge.domain.usecase.DeleteUseCase;
-import com.example.sctec_challenge.domain.usecase.PageableUseCase;
-import com.example.sctec_challenge.domain.usecase.RetrieveByIdUseCase;
-import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.CreateUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.DeleteUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.PageableUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.RetrieveByIdUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.UpdateUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

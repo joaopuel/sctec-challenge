@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.gateway;
+package com.example.sctec_challenge.domain.ports.gateway;
 
 import java.util.Optional;
 

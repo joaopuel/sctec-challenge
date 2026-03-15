@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.application.exception;
+package com.example.sctec_challenge.domain.exception;
 
 import org.springframework.http.HttpStatus;
 

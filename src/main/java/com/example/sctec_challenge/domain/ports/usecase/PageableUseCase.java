@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.usecase;
+package com.example.sctec_challenge.domain.ports.usecase;
 
 import com.example.sctec_challenge.application.dto.pageable.PageDTO;
 

@@ -9,7 +9,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import org.springframework.web.util.BindErrorUtils;
 
 import com.example.sctec_challenge.application.dto.requests.ErrorCategoryDTO;
-import com.example.sctec_challenge.application.exception.ServiceException;
+import com.example.sctec_challenge.domain.exception.ServiceException;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 

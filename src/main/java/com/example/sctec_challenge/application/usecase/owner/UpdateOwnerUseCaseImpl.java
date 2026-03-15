@@ -6,12 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.exception.ServiceException;
 import com.example.sctec_challenge.application.utils.CustomMapper;
-import com.example.sctec_challenge.domain.gateway.ExistsByGateway;
-import com.example.sctec_challenge.domain.gateway.SaveGateway;
+import com.example.sctec_challenge.domain.exception.ServiceException;
 import com.example.sctec_challenge.domain.model.OwnerModel;
-import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
+import com.example.sctec_challenge.domain.ports.gateway.ExistsByGateway;
+import com.example.sctec_challenge.domain.ports.gateway.SaveGateway;
+import com.example.sctec_challenge.domain.ports.usecase.UpdateUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

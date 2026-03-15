@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.usecase;
+package com.example.sctec_challenge.domain.ports.usecase;
 
 /**
  * Contract for use cases that retrieve a single resource represented by a unique identifier.

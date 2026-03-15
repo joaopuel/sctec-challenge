@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.usecase;
+package com.example.sctec_challenge.domain.ports.usecase;
 
 /**
  * Contract for use cases responsible for updating an existing resource.

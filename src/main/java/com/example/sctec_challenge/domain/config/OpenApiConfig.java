@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.config;
+package com.example.sctec_challenge.domain.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
