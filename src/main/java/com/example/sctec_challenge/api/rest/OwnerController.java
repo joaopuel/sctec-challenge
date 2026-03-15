@@ -13,6 +13,7 @@ import com.example.sctec_challenge.domain.usecase.DeleteUseCase;
 import com.example.sctec_challenge.domain.usecase.PageableUseCase;
 import com.example.sctec_challenge.domain.usecase.RetrieveByIdUseCase;
 import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -21,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 @RequestMapping("/owner")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@Tag(name = "Owner", description = "API for managing company owners")
 public class OwnerController implements GenericEntityController<CreateOwnerDTO, OwnerDTO, UUID> {
     
     CreateUseCase<CreateOwnerDTO, OwnerDTO> createOwnerUseCaseImpl;
