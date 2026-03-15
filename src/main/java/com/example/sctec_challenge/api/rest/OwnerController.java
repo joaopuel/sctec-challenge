@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sctec_challenge.application.dto.owner.CreateOwnerDTO;
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.usecase.contract.CreateUseCase;
-import com.example.sctec_challenge.application.usecase.contract.DeleteUseCase;
-import com.example.sctec_challenge.application.usecase.contract.PageableUseCase;
-import com.example.sctec_challenge.application.usecase.contract.RetrieveByIdUseCase;
-import com.example.sctec_challenge.application.usecase.contract.UpdateUseCase;
+import com.example.sctec_challenge.domain.rest.GenericEntityController;
+import com.example.sctec_challenge.domain.usecase.CreateUseCase;
+import com.example.sctec_challenge.domain.usecase.DeleteUseCase;
+import com.example.sctec_challenge.domain.usecase.PageableUseCase;
+import com.example.sctec_challenge.domain.usecase.RetrieveByIdUseCase;
+import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

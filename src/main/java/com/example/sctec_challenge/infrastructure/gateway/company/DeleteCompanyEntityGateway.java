@@ -1,23 +1,23 @@
-package com.example.sctec_challenge.infrastructure.gateway.owner;
+package com.example.sctec_challenge.infrastructure.gateway.company;
 
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
 import com.example.sctec_challenge.domain.gateway.DeleteGateway;
-import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
+import com.example.sctec_challenge.infrastructure.persistence.repositories.CompanyRepository;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Component
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-public class DeleteOwnerEntityGateway implements DeleteGateway<UUID> {
+public class DeleteCompanyEntityGateway implements DeleteGateway<UUID> {
     
-    OwnerRepository ownerRepository;
+    CompanyRepository companyRepository;
     
     @Override
     public void execute(UUID id) {
-        ownerRepository.deleteById(id);
+        companyRepository.deleteById(id);
     }
 }

@@ -12,13 +12,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Generated;
 import lombok.experimental.FieldDefaults;
 
 @Entity
@@ -34,7 +31,7 @@ public class OwnerEntity {
     @Column(nullable = false)
     String name;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     String email;
     
     @Column(length = 11)

@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.application.usecase.contract;
+package com.example.sctec_challenge.domain.usecase;
 
 import com.example.sctec_challenge.application.dto.pageable.PageDTO;
 

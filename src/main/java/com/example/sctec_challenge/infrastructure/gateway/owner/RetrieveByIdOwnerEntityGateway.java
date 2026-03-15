@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 import com.example.sctec_challenge.application.utils.CustomMapper;
+import com.example.sctec_challenge.domain.gateway.RetrieveByIdGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
-import com.example.sctec_challenge.infrastructure.gateway.contract.RetrieveByIdGateway;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

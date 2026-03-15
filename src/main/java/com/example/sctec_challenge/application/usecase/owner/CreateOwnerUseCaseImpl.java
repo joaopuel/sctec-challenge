@@ -4,11 +4,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.CreateOwnerDTO;
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.usecase.contract.CreateUseCase;
 import com.example.sctec_challenge.application.utils.CustomMapper;
+import com.example.sctec_challenge.domain.gateway.SaveGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
+import com.example.sctec_challenge.domain.usecase.CreateUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.owner.SaveOwnerEntityGateway;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
@@ -19,7 +19,7 @@ public class CreateOwnerUseCaseImpl implements CreateUseCase<CreateOwnerDTO, Own
     
     CustomMapper customMapper;
     GenericMapper<OwnerModel, OwnerDTO> ownerDTOGenericMapper;
-    SaveOwnerEntityGateway saveOwnerEntityGateway;
+    SaveGateway<OwnerModel> saveOwnerEntityGateway;
     
     @Override
     public OwnerDTO execute(CreateOwnerDTO dto) {

@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
 import com.example.sctec_challenge.application.exception.ServiceException;
-import com.example.sctec_challenge.application.usecase.contract.RetrieveByIdUseCase;
+import com.example.sctec_challenge.domain.gateway.RetrieveByIdGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
+import com.example.sctec_challenge.domain.usecase.RetrieveByIdUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.contract.RetrieveByIdGateway;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 

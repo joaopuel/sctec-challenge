@@ -21,12 +21,12 @@ public class CustomMapper extends ModelMapper {
     
     @PostConstruct
     private void setConfigurations() {
-        this.getConfiguration() //
-                .setMatchingStrategy(MatchingStrategies.STRICT) //
-                .setFieldMatchingEnabled(true) //
-                .setAmbiguityIgnored(true) //
-                .setSkipNullEnabled(true) //
-                .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE) //
+        this.getConfiguration()
+                .setMatchingStrategy(MatchingStrategies.STRICT)
+                .setFieldMatchingEnabled(true)
+                .setAmbiguityIgnored(true)
+                .setSkipNullEnabled(true)
+                .setFieldAccessLevel(Configuration.AccessLevel.PRIVATE)
                 .setMethodAccessLevel(Configuration.AccessLevel.PRIVATE);
     }
     

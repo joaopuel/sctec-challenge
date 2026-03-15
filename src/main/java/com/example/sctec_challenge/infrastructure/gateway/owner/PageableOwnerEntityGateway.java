@@ -3,10 +3,10 @@ package com.example.sctec_challenge.infrastructure.gateway.owner;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import com.example.sctec_challenge.domain.gateway.PageableGateway;
 import com.example.sctec_challenge.domain.model.OwnerModel;
 import com.example.sctec_challenge.domain.model.PageModel;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
-import com.example.sctec_challenge.infrastructure.gateway.contract.PageableGateway;
 import com.example.sctec_challenge.infrastructure.persistence.entities.OwnerEntity;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
 import lombok.AllArgsConstructor;
