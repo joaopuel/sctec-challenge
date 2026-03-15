@@ -2,9 +2,8 @@ package com.example.sctec_challenge.application.usecase.owner;
 
 import org.springframework.stereotype.Service;
 
-import com.example.sctec_challenge.application.dto.owner.CreateOwnerDTO;
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.usecase.contract.CreateUseCase;
+import com.example.sctec_challenge.application.usecase.contract.UpdateUseCase;
 import com.example.sctec_challenge.application.utils.CustomMapper;
 import com.example.sctec_challenge.domain.model.OwnerModel;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
@@ -15,14 +14,14 @@ import lombok.experimental.FieldDefaults;
 @Service
 @AllArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-public class CreateOwnerUseCaseImpl implements CreateUseCase<CreateOwnerDTO, OwnerDTO> {
+public class UpdateUseCaseImpl implements UpdateUseCase<OwnerDTO> {
     
     CustomMapper customMapper;
     GenericMapper<OwnerModel, OwnerDTO> ownerDTOGenericMapper;
     CreateOwnerEntityGateway createOwnerEntityGateway;
     
     @Override
-    public OwnerDTO execute(CreateOwnerDTO dto) {
+    public OwnerDTO execute(OwnerDTO dto) {
         var model = customMapper.map(dto, OwnerModel.class);
         model = createOwnerEntityGateway.execute(model);
         return ownerDTOGenericMapper.map(model);

@@ -5,7 +5,7 @@ import com.example.sctec_challenge.domain.model.PageModel;
 /**
  * Read gateway that retrieves paged entities without filters.
  *
- * @param <D> entity type contained in the pages
+ * @param <D> type of the entity model
  */
 @FunctionalInterface
 public interface PageableGateway<D> {

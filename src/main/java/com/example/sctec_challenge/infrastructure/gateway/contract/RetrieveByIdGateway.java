@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * Read gateway that resolves a single entity by identifier.
  *
- * @param <D> entity type returned
+ * @param <D>  type of the entity model
  * @param <ID> identifier type
  */
 @FunctionalInterface
