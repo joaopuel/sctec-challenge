@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.sctec_challenge.application.dto.owner.CreateOwnerDTO;
 import com.example.sctec_challenge.application.dto.owner.OwnerDTO;
-import com.example.sctec_challenge.application.exception.ServiceException;
-import com.example.sctec_challenge.domain.gateway.ExistsByGateway;
-import com.example.sctec_challenge.domain.usecase.CreateUseCase;
-import com.example.sctec_challenge.domain.usecase.CreatefNotExistsUseCase;
+import com.example.sctec_challenge.domain.exception.ServiceException;
+import com.example.sctec_challenge.domain.ports.gateway.ExistsByGateway;
+import com.example.sctec_challenge.domain.ports.usecase.CreateUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.CreatefNotExistsUseCase;
 import com.example.sctec_challenge.domain.utils.GenericMapper;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;

@@ -5,10 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.util.BindErrorUtils;
 
 import com.example.sctec_challenge.application.dto.requests.ErrorCategoryDTO;
-import com.example.sctec_challenge.application.exception.ServiceException;
+import com.example.sctec_challenge.domain.exception.ServiceException;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +22,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity //
                 .status(HttpStatus.BAD_REQUEST) //
                 .body(new ErrorCategoryDTO(HttpStatus.BAD_REQUEST.name(), BindErrorUtils.resolveAndJoin(ex.getFieldErrors())));
+    }
+    
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorCategoryDTO> handlerBadRequest(MethodArgumentTypeMismatchException ex) {
+        return ResponseEntity //
+                .status(HttpStatus.BAD_REQUEST) //
+                .body(new ErrorCategoryDTO(HttpStatus.BAD_REQUEST.name(), ex.getMessage()));
     }
     
     @ExceptionHandler(ConstraintViolationException.class)

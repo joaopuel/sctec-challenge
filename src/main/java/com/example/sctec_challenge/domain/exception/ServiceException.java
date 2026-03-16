@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.application.exception;
+package com.example.sctec_challenge.domain.exception;
 
 import org.springframework.http.HttpStatus;
 
@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ServiceException extends RuntimeException {
 
+    private HttpStatus category;
+
     public ServiceException(String message, HttpStatus category) {
-        this.category = category;
         super(message);
+        this.category = category;
     }
     
     public ServiceException(String message, HttpStatus category, Throwable cause) {
-        this.category = category;
         super(message, cause);
+        this.category = category;
     }
-    
-    private HttpStatus category;
 
 }

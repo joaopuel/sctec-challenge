@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.gateway;
+package com.example.sctec_challenge.domain.ports.gateway;
 
 /**
  * Abstraction for persistence gateways that create new entities.

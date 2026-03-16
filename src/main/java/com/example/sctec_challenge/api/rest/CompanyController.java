@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sctec_challenge.application.dto.company.CompanyDTO;
 import com.example.sctec_challenge.application.dto.company.CreateCompanyDTO;
-import com.example.sctec_challenge.domain.rest.GenericEntityController;
-import com.example.sctec_challenge.domain.usecase.CreateUseCase;
-import com.example.sctec_challenge.domain.usecase.DeleteUseCase;
-import com.example.sctec_challenge.domain.usecase.PageableUseCase;
-import com.example.sctec_challenge.domain.usecase.RetrieveByIdUseCase;
-import com.example.sctec_challenge.domain.usecase.UpdateUseCase;
+import com.example.sctec_challenge.domain.ports.rest.GenericEntityController;
+import com.example.sctec_challenge.domain.ports.usecase.CreateUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.DeleteUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.PageableUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.RetrieveByIdUseCase;
+import com.example.sctec_challenge.domain.ports.usecase.UpdateUseCase;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -21,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 @RequestMapping("/company")
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@Tag(name = "Empresas", description = "API para gerenciar empresas")
 public class CompanyController implements GenericEntityController<CreateCompanyDTO, CompanyDTO, UUID> {
     
     CreateUseCase<CreateCompanyDTO, CompanyDTO> createCompanyUseCaseImpl;

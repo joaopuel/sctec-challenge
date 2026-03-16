@@ -5,10 +5,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.example.sctec_challenge.application.exception.ServiceException;
 import com.example.sctec_challenge.application.utils.CustomMapper;
-import com.example.sctec_challenge.domain.gateway.SaveGateway;
+import com.example.sctec_challenge.domain.exception.ServiceException;
 import com.example.sctec_challenge.domain.model.OwnerModel;
+import com.example.sctec_challenge.domain.ports.gateway.SaveGateway;
 import com.example.sctec_challenge.infrastructure.persistence.entities.OwnerEntity;
 import com.example.sctec_challenge.infrastructure.persistence.repositories.OwnerRepository;
 import lombok.AllArgsConstructor;

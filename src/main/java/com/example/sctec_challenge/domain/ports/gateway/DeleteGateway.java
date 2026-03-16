@@ -1,4 +1,4 @@
-package com.example.sctec_challenge.domain.gateway;
+package com.example.sctec_challenge.domain.ports.gateway;
 
 /**
  * Gateway abstraction responsible for deleting entities by their identifier type.
