@@ -83,18 +83,28 @@ Representa o responsável legal por uma ou mais empresas.
 
 ### Comandos
 
+* Primeira opção: com wrapper do Maven (recomendado):
 ```bash
 # Compilar o projeto
-./mvnw clean install
+mvnw clean install
 
 # Executar a aplicação
-./mvnw spring-boot:run
+mvnw spring-boot:run
 ```
+* Segunda opção: com Maven global:
+```bash
+# Compilar o projeto
+mvn clean install
+
+# Executar a aplicação
+mvn spring-boot:run
+```
+*Observação: Assim que o projeto for executado, ele estará disponível em `http://localhost:8080`. Garanta que a porta 8080 esteja livre ou ajuste a propriedade `server.port` em `application.properties`.*
 
 ---
 
 ## Documentação Swagger
-A documentação da API estará disponível em:
+Assim que a aplicação estiver em execução, a documentação dos endpoints estará disponível acessando as seguintes URLs:
 - `http://localhost:8080/api/swagger-ui.html` (interface gráfica)
 - `http://localhost:8080/api/v3/api-docs` (JSON OpenAPI)
 
