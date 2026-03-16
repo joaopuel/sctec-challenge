@@ -137,5 +137,4 @@ Assim que a aplicação estiver em execução, a documentação dos endpoints es
 ---
 
 ### Link Para Vídeo de Apresentação
-
-[![Apresentação do Projeto](https://img.youtube.com/vi/SEU_VIDEO_ID_AQUI/0.jpg)](https://www.youtube.com/watch?v=SEU_VIDEO_ID_AQUI)
+Link: https://youtu.be/mYshwGKUpcA
